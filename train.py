@@ -16,7 +16,7 @@ def load_split(path, split, n=None):
   """Розбиття split ("train" або "test") файлу .npz як TensorDataset."""
   d = np.load(path)
   x = d[f"{split}_images"][:n] # (N, 28, 28) або (N, 28, 28, 3), uint8
-  y = d[f"{split}_labels"][:n].reshape(-1) # (N, 1) -&gt; (N,)
+  y = d[f"{split}_labels"][:n].reshape(-1) # (N, 1) -> (N,)
   if x.ndim == 3:
     x = x[:, None, :, :] # (N, 1, 28, 28)
   else:
